@@ -1,0 +1,1193 @@
+/* ======================================================
+   RUMAH BUMN YOGYAKARTA – FINAL CLEAN CSS
+   Version: Production Ready
+====================================================== */
+
+/* ================= ROOT SYSTEM ================= */
+
+:root {
+    --primary: #2A59C2;
+    --primary-deep: #001978;
+    --primary-gradient: linear-gradient(135deg, #001978, #2A59C2);
+
+    --text-primary: #000F3D;
+    --text-muted: #64748b;
+
+    --bg-soft: #f1f5ff;
+    --white: #ffffff;
+
+    /* Semantic Colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    /* Membership Colors */
+    --membership-green: #00a651;
+    --membership-green-soft: #e6f6ee;
+    --membership-blue: #1068ff;
+    --membership-blue-soft: #e7f0ff;
+    --membership-gold: #e69100;
+    --membership-gold-soft: #fff6e6;
+
+    /* Layout */
+    --radius: 16px;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 18px 45px rgba(15, 23, 42, 0.12);
+
+    --transition: all 0.3s ease;
+}
+
+/* ================= GLOBAL ================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section {
+    padding: var(--space-xl) 0;
+}
+
+.section + .section {
+    padding-top: var(--space-lg);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--space-lg);
+    color: var(--text-muted);
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+}
+
+.brand-logo {
+    height: 44px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.nav-menu a.active {
+    background: var(--primary);
+    color: white;
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(16, 59, 207, 0.25);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    background: var(--primary-gradient);
+    color: white;
+    padding: var(--space-xl) 0;
+}
+
+.hero-grid {
+    display: grid;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-sm);
+}
+
+.hero p {
+    color: #dbe3ff;
+    margin-bottom: var(--space-md);
+    max-width: 560px;
+    font-size: 1.1rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-light {
+    background: white;
+    color: var(--primary);
+    border: 2px solid white;
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    background: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    gap: var(--space-lg);
+    align-items: center;
+}
+
+.about-image {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.partner-logos {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    align-items: center;
+}
+
+/* ================= BENEFITS ================= */
+
+.benefits {
+    background: var(--bg-soft);
+}
+
+.card-grid {
+    display: grid;
+    gap: var(--space-md);
+    
+}
+
+.feature-card {
+    background: var(--white);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ================= MEMBERSHIP ================= */
+
+.membership {
+    background: var(--white);
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.membership-card {
+    background: var(--white);
+    padding: 2.5rem 1.5rem;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #f1f5f9;
+    height: 100%;
+}
+
+.membership-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.member-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.membership-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.member-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    min-height: 3rem;
+    color: var(--text-muted);
+}
+
+.membership-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.membership-card li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.btn-membership {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.9rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+/* Category Colors */
+.bg-green-soft { background-color: var(--membership-green-soft); }
+.text-green { color: var(--membership-green); }
+.btn-green { background-color: var(--membership-green); color: white; }
+.btn-green:hover { background-color: #008a44; transform: scale(1.02); }
+
+.bg-blue-soft { background-color: var(--membership-blue-soft); }
+.text-blue { color: var(--membership-blue); }
+.btn-blue { background-color: var(--membership-blue); color: white; }
+.btn-blue:hover { background-color: #0056e0; transform: scale(1.02); }
+
+.bg-gold-soft { background-color: var(--membership-gold-soft); }
+.text-gold { color: var(--membership-gold); }
+.btn-gold { background-color: var(--membership-gold); color: white; }
+.btn-gold:hover { background-color: #b37400; transform: scale(1.02); }
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-menu {
+        display: none; /* Sembunyikan menu di tablet, bisa diganti dengan menu hamburger */
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --space-md: 1.5rem;
+        --space-lg: 3rem;
+        --space-xl: 4rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .card-grid, .membership-grid, .partner-logos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= HAMBURGER & MOBILE MENU ================= */
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--text-primary);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+}
+
+.membership-card ul {
+    text-align: left;
+    padding-left: 1rem;
+    color: var(--text-muted);
+}
+
+.membership-card a {
+    margin-top: auto;
+}
+
+/* ================= BUTTON ================= */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-deep);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: white;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btnmember-card {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+
+    border-radius: 999px;
+    border: 2px solid var(--primary);
+
+    background: white;
+    color: var(--primary);
+
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btnmember-card:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 91, 172, 0.25);
+}
+/* ================= CONTACT ================= */
+
+.contact-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-section .card {
+    transition: transform 0.3s ease;
+}
+
+.contact-section .card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-section iframe {
+    filter: grayscale(10%);
+    transition: filter 0.3s ease;
+}
+
+.contact-section iframe:hover {
+    filter: grayscale(0%);
+}
+
+.cta {
+    background: #ffffff; /* Latar belakang section tetap putih */
+    text-align: center;
+}
+
+.cta-box {
+    background: #0044ff; /* Biru cerah sesuai gambar */
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto; /* Menengahkan kotak */
+    box-shadow: 0 15px 40px rgba(0, 68, 255, 0.2);
+}
+
+.cta-box h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-box p {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-actions {
+    margin-top: var(--space-md);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.cta-actions .btn-light {
+    background: white;
+    color: #0044ff;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+    background: #001978;
+    color: #cbd5ff;
+    padding: 3.5rem 0 1.5rem; /* lebih kecil */
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer-about h2 {
+    color: white;
+    font-size: 2rem; /* sedikit lebih kecil */
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.footer-about p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #dbe4ff;
+}
+
+.site-footer h4 {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.footer-links ul,
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+    color: #dbe4ff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 4px;
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
+    align-items: flex-start;
+    color: #dbe4ff;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.footer-contact i {
+    color: white;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* bottom */
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem; /* sebelumnya 5rem */
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #cbd5ff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .footer-about h2 {
+        text-align: center;
+    }
+
+    .footer-contact li {
+        justify-content: center;
+    }
+}
+
+/* ================= REGISTRATION FLOW ================= */
+
+.registration-flow {
+    position: relative;
+}
+
+.flow-grid {
+    position: relative;
+}
+
+.flow-item {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.flow-number {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(16, 59, 207, 0.3);
+    z-index: 2;
+}
+
+.flow-icon-box {
+    width: 80px;
+    height: 80px;
+    background: var(--admin-primary-soft);
+    color: var(--primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: var(--transition);
+}
+
+.flow-item:hover .flow-icon-box {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+}
+
+.flow-item h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+    .flow-grid::after {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 20%;
+        right: 20%;
+        height: 2px;
+        background: repeating-linear-gradient(to right, #e2e8f0 0, #e2e8f0 10px, transparent 10px, transparent 20px);
+        z-index: 0;
+    }
+}
+
+/* ================= MEMBERSHIP SECTION ================= */
+
+.membership-section {
+    padding: 80px 20px;
+    background: #f3f6fb;
+}
+
+.membership-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* ================= CARD BASE ================= */
+
+/* ================= ACTIVE COLORS ================= */
+
+.membership-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* BLUE */
+.membership-card.active.color-blue {
+    background: #103bcf;
+    color: white;
+    box-shadow: 0 20px 45px rgba(16, 59, 207, 0.3);
+}
+
+/* GREEN */
+.membership-card.active.color-green {
+    background: #16a34a;
+    color: white;
+    box-shadow: 0 20px 45px rgba(22, 163, 74, 0.3);
+}
+
+/* GOLD */
+.membership-card.active.color-gold {
+    background: #d97706;
+    color: white;
+    box-shadow: 0 20px 45px rgba(217, 119, 6, 0.3);
+}
+
+/* Supaya semua teks & icon jadi putih */
+.membership-card.active h5,
+.membership-card.active p,
+.membership-card.active i {
+    color: white !important;
+}
+
+/* ================= HEADER ================= */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 22px;
+    
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ================= BODY ================= */
+
+.card-body p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* ================= GRID JENIS KEANGGOTAAN ================= */
+
+.card-grid {
+    display: flex;
+    grid-template-columns: 1fr;
+    gap: 40px;                 /* sedikit lebih rapat */
+    padding: 20px 25px 30px;   /* lebih seimbang */
+    margin-top: 15px;
+    border-top: 1px solid #f3f4f6; /* garis tipis pemisah */
+    
+}
+
+.card-grid > div {
+    padding-left: 30px;
+}
+
+.card-grid h4 {
+    margin-bottom: 16px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.card-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.card-grid li {
+    position: relative;
+    padding-left: 20px;
+    padding-right: 10px;       /* kasih ruang kanan */
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4b5563;
+    
+    max-width: 100%;           /* jangan keluar dari kolom */
+    word-wrap: break-word;     /* text panjang tetap turun */
+}
+
+.card-grid li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #16a34a; /* default bisa diganti sesuai warna card */
+    font-size: 16px;
+}
+/* ================= BUTTON ================= */
+
+.btn-card {
+    padding: 11px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= WARNA VARIASI ================= */
+.membership2-wrapper {
+    display: grid;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* center */
+    padding: 40px 20px;
+}
+.membership2-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden; /* supaya header ikut rounded */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+}
+
+.membership2-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+/* GREEN */
+.membership2-card.green .card-header {
+    background: linear-gradient(90deg, #d1fae5, #ecfdf5);
+    padding: 10px 12px;   /* atas-bawah | kiri-kanan */
+    border-radius: 14px 14px 0px 0px;  /* supaya sudut ikut halus */
+
+}
+
+.membership2-card.green .btn-card {
+    background: #16a34a;
+    
+}
+
+.membership2-card.green .btn-card:hover {
+    background: #15803d;
+}
+
+/* BLUE */
+.membership2-card.blue .card-header {
+    background: linear-gradient(90deg, #dbeafe, #eff6ff);
+    padding: 10px 12px;   /* atas-bawah | kiri-kanan */
+    border-radius: 14px 14px 0px 0px;
+}
+
+.membership2-card.blue .btn-card {
+    background: #2563eb;
+}
+
+.membership2-card.blue .btn-card:hover {
+    background: #1d4ed8;
+}
+
+/* GOLD */
+.membership2-card.gold .card-header {
+    background: linear-gradient(90deg, #fef3c7, #fffbeb);
+    padding: 10px 12px;   /* atas-bawah | kiri-kanan */
+    border-radius: 14px 14px 0px 0px;
+}
+
+.membership2-card.gold .btn-card {
+    background: #d97706;
+}
+
+.membership2-card.gold .btn-card:hover {
+    background: #b45309;
+}
+
+.membership2-card.green .card-grid li::before {
+    color: #16a34a;
+}
+
+.membership2-card.blue .card-grid li::before {
+    color: #2563eb;
+}
+
+.membership2-card.gold .card-grid li::before {
+    color: #d97706;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.contact-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    color: #6b7280;
+    margin-bottom: 50px;
+}
+
+/* WRAPPER */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 35px;
+}
+
+/* ICON STYLE */
+.contact-card {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    background: #e0e7ff;
+    color: #2563eb;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* WhatsApp Special */
+.whatsapp-card .contact-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.btn-wa {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #16a34a;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-wa:hover {
+    background: #15803d;
+}
+
+/* MAP CARD */
+.map-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.map-card h4 {
+    margin-bottom: 15px;
+}
+
+.btn-map {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 14px;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-map:hover {
+    background: #1d4ed8;
+}
+
+/* RIGHT SIDE */
+.form-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+.form-card h3 {
+    margin-bottom: 5px;
+}
+
+.form-card p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Button */
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+/* MAP CARD */
+.map-card {
+    background: #94a3b8;
+    color: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .membership-section {
+        padding: 60px 20px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-grid,
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .membership-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
