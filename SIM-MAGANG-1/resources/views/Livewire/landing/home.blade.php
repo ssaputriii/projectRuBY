@@ -78,6 +78,247 @@
 </section>
 
 
+
+<section class="bg-white border-b border-slate-100 py-16 px-4 sm:px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+
+    {{-- ── Heading ── --}}
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-600 text-xs font-semibold
+                   tracking-widest uppercase px-4 py-1.5 rounded-full border border-blue-100 mb-4">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/>
+        </svg>
+        Panduan Pendaftaran
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 mb-2">
+        Alur Pendaftaran Magang
+      </h2>
+      <p class="text-slate-500 text-sm sm:text-base max-w-lg mx-auto">
+        Ikuti langkah pendaftaran magang dengan mudah dan cepat.
+      </p>
+    </div>
+
+    {{-- ── Steps — Desktop (3 kolom) ── --}}
+    <div class="hidden md:grid md:grid-cols-3 gap-6 relative">
+
+      {{-- Garis penghubung step 1 → 2 --}}
+      <div class="absolute top-[2.6rem] left-[calc(33.33%_-_2px)] w-[calc(33.33%_+_4px)]
+                  border-t-2 border-dashed border-blue-200 z-0 pointer-events-none"></div>
+      {{-- Garis penghubung step 2 → 3 --}}
+      <div class="absolute top-[2.6rem] left-[calc(66.66%_-_2px)] w-[calc(33.33%_+_4px)]
+                  border-t-2 border-dashed border-blue-200 z-0 pointer-events-none"></div>
+
+      {{-- ── STEP 1 ── --}}
+      <div class="group relative z-10 flex flex-col items-center text-center
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-8
+                  transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200">
+        {{-- Badge nomor --}}
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2
+                     w-6 h-6 rounded-full bg-blue-600 text-white text-[11px] font-bold
+                     flex items-center justify-center shadow">
+          1
+        </span>
+        {{-- Icon --}}
+        <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-blue-100
+                    flex items-center justify-center mb-5 shadow-sm
+                    group-hover:bg-blue-600 group-hover:border-blue-600 transition duration-300">
+          <svg class="w-9 h-9 text-blue-600 group-hover:text-white transition duration-300"
+               fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Z
+                 M12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18
+                 M7.757 14.743l-1.59 1.59M6 10.5H3.75
+                 m4.007-4.243-1.59-1.59"/>
+          </svg>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900 mb-2">Klik Tombol Daftar</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          Tombol <span class="font-semibold text-blue-600">Daftar</span> tersedia di halaman
+          Beranda, Divisi Magang, dan Alur Magang untuk memudahkan peserta memulai
+          proses pendaftaran.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold
+                     text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          Langkah 1
+        </span>
+      </div>
+
+      {{-- ── STEP 2 ── --}}
+      <div class="group relative z-10 flex flex-col items-center text-center
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-8
+                  transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2
+                     w-6 h-6 rounded-full bg-blue-600 text-white text-[11px] font-bold
+                     flex items-center justify-center shadow">
+          2
+        </span>
+        <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-blue-100
+                    flex items-center justify-center mb-5 shadow-sm
+                    group-hover:bg-blue-600 group-hover:border-blue-600 transition duration-300">
+          <svg class="w-9 h-9 text-blue-600 group-hover:text-white transition duration-300"
+               fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12h3.75M9 15h3.75M9 18h3.75
+                 m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192
+                 a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664
+                 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664
+                 m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586
+                 m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25
+                 m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25
+                 c0 .621.504 1.125 1.125 1.125h9.75
+                 c.621 0 1.125-.504 1.125-1.125V9.375
+                 c0-.621-.504-1.125-1.125-1.125H8.25Z
+                 M6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/>
+          </svg>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900 mb-2">Isi Formulir Lengkap</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          Lengkapi seluruh <span class="font-semibold text-blue-600">data diri</span> pada
+          formulir pendaftaran online sesuai informasi yang diminta dengan benar dan lengkap.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold
+                     text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          Langkah 2
+        </span>
+      </div>
+
+      {{-- ── STEP 3 ── --}}
+      <div class="group relative z-10 flex flex-col items-center text-center
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-8
+                  transition duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-200">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2
+                     w-6 h-6 rounded-full bg-blue-600 text-white text-[11px] font-bold
+                     flex items-center justify-center shadow">
+          3
+        </span>
+        <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-blue-100
+                    flex items-center justify-center mb-5 shadow-sm
+                    group-hover:bg-blue-600 group-hover:border-blue-600 transition duration-300">
+          <svg class="w-9 h-9 text-blue-600 group-hover:text-white transition duration-300"
+               fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+          </svg>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900 mb-2">Cek Data Pendaftar</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          Setelah mengirim formulir, tekan tombol
+          <span class="font-semibold text-blue-600">Cek Data Pendaftar</span>
+          untuk melihat daftar peserta yang sudah berhasil mendaftar.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold
+                     text-blue-600 bg-blue-50 border border-blue-100 rounded-full px-3 py-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          Langkah 3
+        </span>
+      </div>
+
+    </div>{{-- end desktop grid --}}
+
+    {{-- ── Steps — Mobile (vertikal) ── --}}
+    <div class="flex flex-col gap-4 md:hidden relative">
+
+      {{-- Garis kiri vertikal --}}
+      <div class="absolute left-[2.35rem] top-14 bottom-14
+                  w-0.5 border-l-2 border-dashed border-blue-200 z-0"></div>
+
+      {{-- STEP 1 mobile --}}
+      <div class="relative z-10 flex items-start gap-4
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-5
+                  transition duration-300 hover:shadow-md hover:border-blue-200">
+        <div class="shrink-0 w-[4.75rem] flex flex-col items-center gap-1.5">
+          <div class="w-[4.75rem] h-[4.75rem] rounded-xl bg-blue-50 border border-blue-100
+                      flex items-center justify-center shadow-sm">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor"
+                 stroke-width="1.7" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672Z
+                   M12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18
+                   M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"/>
+            </svg>
+          </div>
+          <span class="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold
+                       flex items-center justify-center shadow">1</span>
+        </div>
+        <div class="flex-1 pt-1">
+          <h3 class="text-sm font-semibold text-slate-900 mb-1">Klik Tombol Daftar</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Tombol <span class="font-semibold text-blue-600">Daftar</span> tersedia di halaman
+            Beranda, Divisi Magang, dan Alur Magang.
+          </p>
+        </div>
+      </div>
+
+      {{-- STEP 2 mobile --}}
+      <div class="relative z-10 flex items-start gap-4
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-5
+                  transition duration-300 hover:shadow-md hover:border-blue-200">
+        <div class="shrink-0 w-[4.75rem] flex flex-col items-center gap-1.5">
+          <div class="w-[4.75rem] h-[4.75rem] rounded-xl bg-blue-50 border border-blue-100
+                      flex items-center justify-center shadow-sm">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor"
+                 stroke-width="1.7" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75
+                   m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108
+                   c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08
+                   m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5
+                   a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664
+                   m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586
+                   m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25
+                   m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25
+                   c0 .621.504 1.125 1.125 1.125h9.75
+                   c.621 0 1.125-.504 1.125-1.125V9.375
+                   c0-.621-.504-1.125-1.125-1.125H8.25Z"/>
+            </svg>
+          </div>
+          <span class="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold
+                       flex items-center justify-center shadow">2</span>
+        </div>
+        <div class="flex-1 pt-1">
+          <h3 class="text-sm font-semibold text-slate-900 mb-1">Isi Formulir Lengkap</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Lengkapi seluruh <span class="font-semibold text-blue-600">data diri</span> pada
+            formulir pendaftaran online sesuai informasi yang diminta.
+          </p>
+        </div>
+      </div>
+
+      {{-- STEP 3 mobile --}}
+      <div class="relative z-10 flex items-start gap-4
+                  bg-white border border-slate-200 rounded-2xl shadow-sm p-5
+                  transition duration-300 hover:shadow-md hover:border-blue-200">
+        <div class="shrink-0 w-[4.75rem] flex flex-col items-center gap-1.5">
+          <div class="w-[4.75rem] h-[4.75rem] rounded-xl bg-blue-50 border border-blue-100
+                      flex items-center justify-center shadow-sm">
+            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor"
+                 stroke-width="1.7" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+            </svg>
+          </div>
+          <span class="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold
+                       flex items-center justify-center shadow">3</span>
+        </div>
+        <div class="flex-1 pt-1">
+          <h3 class="text-sm font-semibold text-slate-900 mb-1">Cek Data Pendaftar</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">
+            Tekan tombol <span class="font-semibold text-blue-600">Cek Data Pendaftar</span>
+            untuk melihat daftar peserta yang sudah mendaftar.
+          </p>
+        </div>
+      </div>
+
+    </div>{{-- end mobile --}}
+
+  </div>
+</section>
+
+
+
 <section class="px-6 md:px-12 lg:px-20 py-16 bg-slate-50">
     <div class="max-w-6xl mx-auto">
 

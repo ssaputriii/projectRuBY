@@ -14,8 +14,7 @@ class MembershipType
                 'name' => 'Anggota UMUM',
                 'subtitle' => 'Untuk Mahasiswa atau yang belum memiliki usaha',
                 'requirements' => [
-                    'Data diri (Nama, Email, WhatsApp)',
-                    'KTP/KTM (opsional)',
+                    'Data diri',
                 ],
                 'button_text' => 'Daftar Sebagai UMUM',
                 'accent' => 'green',
@@ -25,8 +24,8 @@ class MembershipType
                 'name' => 'Anggota UTAMA',
                 'subtitle' => 'Untuk Pemilik Usaha/UMKM',
                 'requirements' => [
-                    'Data diri dan usaha',
-                    'KTP/KTM (opsional)',
+                    'Data diri',
+                    'Data Usaha',
                 ],
                 'button_text' => 'Daftar Sebagai UTAMA',
                 'accent' => 'blue',
@@ -36,8 +35,8 @@ class MembershipType
                 'name' => 'Anggota PRIORITAS',
                 'subtitle' => 'Untuk Pemilik Usaha/UMKM',
                 'requirements' => [
-                    'Data diri (Nama, Email, WhatsApp)',
-                    'KTP/KTM (opsional)',
+                    'Data diri',
+                    'Data Usaha',
                 ],
                 'button_text' => 'Daftar Sebagai PRIORITAS',
                 'accent' => 'gold',
