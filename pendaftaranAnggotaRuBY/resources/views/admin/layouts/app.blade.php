@@ -151,6 +151,35 @@
                 margin-left: 0;
             }
         }
+
+        @media (max-width: 576px) {
+            .topbar .navbar-nav {
+                display: none;
+            }
+            .topbar .ms-auto {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .topbar .ms-auto .btn-light {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+            }
+            .topbar .ms-auto .text-muted.small {
+                display: none;
+            }
+            .topbar .ms-auto span.rounded-circle {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 0.75rem;
+            }
+            .topbar .fw-semibold {
+                font-size: 0.9rem;
+            }
+            .topbar .text-muted.small.dashboard-label {
+                display: none;
+            }
+        }
     </style>
     @stack('head')
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -197,7 +226,7 @@
                             <i class="bi bi-list"></i>
                         </button>
                         <span class="fw-semibold">Admin Panel</span>
-                        <span class="text-muted small">Dashboard</span>
+                        <span class="text-muted small dashboard-label">Dashboard</span>
                     </div>
                     <div class="ms-auto">
                         <a href="{{ route('home') }}" class="btn btn-light border me-2">Ke Website</a>
