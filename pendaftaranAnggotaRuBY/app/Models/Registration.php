@@ -185,4 +185,9 @@ class Registration extends Model
         if (!$val || $val === '0') return $val ?: '-';
         return substr($val, 0, 4) . 'XXXXXXXX' . substr($val, -4);
     }
+
+    public function logs()
+    {
+        return $this->hasMany(RegistrationLog::class)->latest();
+    }
 }

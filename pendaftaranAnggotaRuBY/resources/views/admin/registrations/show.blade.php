@@ -444,6 +444,20 @@
                         <i class="bi bi-info-circle me-1"></i>
                         Pendaftaran ini masuk pada <strong>{{ $registration->created_at?->format('d M Y, H:i') }}</strong>.
                     </div>
+
+                    @if($registration->logs->count() > 0)
+                        <div class="mb-4">
+                            <h6 class="fw-bold small text-uppercase mb-3">Log Aktivitas</h6>
+                            <div class="log-container" style="max-height: 250px; overflow-y: auto;">
+                                @foreach($registration->logs as $log)
+                                    <div class="log-item mb-3 ps-3 border-start border-primary border-3">
+                                        <div class="small fw-bold text-dark">{{ $log->details }}</div>
+                                        <div class="x-small text-muted">{{ $log->created_at->format('d M Y, H:i') }}</div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                     
                     <form action="{{ route('admin.registrations.destroy', $registration) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pendaftaran ini? Tindakan ini tidak dapat dibatalkan.')">
                         @csrf @method('DELETE')

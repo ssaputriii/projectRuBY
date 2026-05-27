@@ -14,12 +14,27 @@
 @livewireScripts
 <body class="bg-slate-50 text-slate-900 font-sans antialiased">
     @auth('admin')
-        <div class="flex min-h-screen">
+        <div x-data="{ sidebarOpen: false }" class="flex min-h-screen">
+
+            {{-- Overlay gelap saat sidebar terbuka di mobile --}}
+            <div
+                x-show="sidebarOpen"
+                x-cloak
+                @click="sidebarOpen = false"
+                class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden"
+            ></div>
+
             <!-- Sidebar -->
-            <aside class="w-64 bg-white border-r border-slate-200 flex-shrink-0 sticky top-0 h-screen overflow-y-auto z-50">
+            <aside
+                :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+                class="fixed top-0 left-0 h-screen w-64 bg-white border-r border-slate-200 z-50 transition-transform duration-300 ease-in-out overflow-y-auto lg:translate-x-0"
+            >
                 <div class="p-6 flex flex-col h-full">
-                    <div class="mb-10 flex items-center gap-3 px-2">
+                    <div class="mb-10 flex items-center justify-between gap-3 px-2">
                         <img src="{{ asset('images/Logo Rumah BUMN.png') }}" class="h-10 w-auto" alt="Logo">
+                        <button @click="sidebarOpen = false" class="lg:hidden p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
                     </div>
 
                     <nav class="flex-1 space-y-1">
@@ -58,16 +73,31 @@
                 </div>
             </aside>
 
-            <!-- Content Area -->
-            <main class="relative flex-1 overflow-x-hidden py-8">
-                {{ $slot }}
-            </main>
+            {{-- Wrapper konten: di desktop geser kanan sejauh lebar sidebar (w-64 = 16rem) --}}
+            <div class="flex-1 flex flex-col min-w-0 lg:ml-64">
+
+                {{-- Topbar mobile --}}
+                <header class="lg:hidden sticky top-0 z-30 flex items-center gap-3 bg-white border-b border-slate-200 px-4 py-3">
+                    <button @click="sidebarOpen = true" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                    <img src="{{ asset('images/Logo Rumah BUMN.png') }}" class="h-7 w-auto" alt="Logo">
+                </header>
+
+                <!-- Content Area -->
+                <main class="relative flex-1 overflow-x-hidden py-8">
+                    {{ $slot }}
+                </main>
+            </div>
+
         </div>
     @else
         <main>
             {{ $slot }}
         </main>
     @endauth
+
+    <style>[x-cloak] { display: none !important; }</style>
 
     @livewireScripts
 </body>

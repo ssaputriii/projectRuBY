@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Registration;
+use App\Models\RegistrationLog;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
@@ -190,6 +191,15 @@ class RegistrationController extends Controller
         }
 
         $registration->update($validated);
+
+        // Record log if there are changes
+        if (!empty($changedFields)) {
+            RegistrationLog::create([
+                'registration_id' => $registration->id,
+                'activity' => 'Admin memperbarui data anggota',
+                'details' => implode(', ', $changedFields) . ' diperbarui.',
+            ]);
+        }
 
         $successMsg = 'Data anggota berhasil diperbarui.';
         if (!empty($changedFields)) {
