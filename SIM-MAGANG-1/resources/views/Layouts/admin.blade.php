@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-@livewireScripts
+
 <body class="bg-slate-50 text-slate-900 font-sans antialiased">
     @auth('admin')
         <div x-data="{ sidebarOpen: false }" class="flex min-h-screen">
