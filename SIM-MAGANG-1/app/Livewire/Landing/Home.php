@@ -18,7 +18,9 @@ class Home extends Component
     {
         $today = Carbon::today();
         $this->currentBatch = Batch::with('divisi')->withCount('peserta')->active()->first();
-        $this->activeBatch = $this->currentBatch && !$this->currentBatch->isQuotaFull() ? $this->currentBatch : null;
+        $this->activeBatch = $this->currentBatch && !$this->currentBatch->isQuotaFull() 
+            ? $this->currentBatch 
+            : null;
 
         if ($this->activeBatch) {
             $this->registrationStatus = 'open';
@@ -27,19 +29,23 @@ class Home extends Component
         } elseif ($this->currentBatch) {
             $this->registrationStatus = 'closed';
         } else {
-            $this->upcomingBatch = Batch::where('tanggal_mulai', '>', $today)->orderBy('tanggal_mulai', 'asc')->first();
+            $this->upcomingBatch = Batch::where('tanggal_mulai', '>', $today)
+                ->orderBy('tanggal_mulai', 'asc')
+                ->first();
             if ($this->upcomingBatch) {
                 $this->registrationStatus = 'upcoming';
-            } else {
-                $this->expiredBatch = Batch::where('tanggal_selesai', '<', $today)->orderBy('tanggal_selesai', 'desc')->first();
             }
+            // expiredBatch dihapus — tidak perlu ditampilkan
         }
     }
 
     public function render()
     {
+        // Jangan tampilkan expiredBatch ke view home
+        $batch = $this->activeBatch ?? $this->currentBatch ?? $this->upcomingBatch ?? null;
+
         return view('livewire.landing.home', [
-            'batch' => $this->activeBatch ?? $this->currentBatch ?? $this->upcomingBatch ?? $this->expiredBatch,
+            'batch' => $batch,
             'status' => $this->registrationStatus,
         ])->layout('layouts.landing');
     }
