@@ -22,9 +22,9 @@
 <!-- Partner Logos Section -->
 <div class="partner-logos">
     <div class="container d-flex justify-content-between align-items-center flex-wrap gap-4 gap-md-5">
-        <img src="{{ asset('assets/images/logodanantara.png') }}" alt="BUMN Untuk Indonesia">
-        <img src="{{ asset('assets/images/logobri.png') }}" alt="BRI">
-        <img src="{{ asset('assets/images/logoruby.png') }}" alt="Rumah BUMN Yogyakarta">
+        <img src="{{ asset('assets/images/logodanantara.png') }}" alt="BUMN Untuk Indonesia" width="170" height="100" decoding="async">
+        <img src="{{ asset('assets/images/logobri.png') }}" alt="BRI" width="170" height="100" decoding="async">
+        <img src="{{ asset('assets/images/logoruby.png') }}" alt="Rumah BUMN Yogyakarta" width="170" height="100" decoding="async">
     </div>
 </div>
 
@@ -34,7 +34,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
                 <div class="position-relative">
-                    <img src="{{ asset('assets/images/ruby2.png') }}" alt="Tentang Rumah BUMN" class="img-fluid rounded-4 shadow-lg">
+                    <img src="{{ asset('assets/images/ruby2-900.webp') }}" alt="Tentang Rumah BUMN" class="img-fluid rounded-4 shadow-lg" width="900" height="675" loading="lazy" decoding="async">
                     <div class="position-absolute bottom-0 start-0 bg-primary text-white p-4 rounded-4 m-3 d-none d-md-block shadow">
                         <h4 class="mb-0 fw-bold">100+</h4>
                         <p class="mb-0 small">UMKM Terbina</p>
@@ -83,7 +83,7 @@
         <!-- Visi & Misi Section -->
         <div class="row align-items-center g-5 mt-5 pt-lg-5">
             <div class="col-lg-6 order-lg-2">
-                <img src="{{ asset('assets/images/ruby1.png') }}" alt="Visi Misi Rumah BUMN" class="img-fluid rounded-4 shadow-lg">
+                <img src="{{ asset('assets/images/ruby1-900.webp') }}" alt="Visi Misi Rumah BUMN" class="img-fluid rounded-4 shadow-lg" width="900" height="675" loading="lazy" decoding="async">
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="mb-5">

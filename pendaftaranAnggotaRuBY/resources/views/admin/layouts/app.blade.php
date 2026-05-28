@@ -190,7 +190,7 @@
     <div class="d-flex">
         <aside class="sidebar">
             <div class="brand">
-                <img src="{{ asset('assets/images/logo-ruby.png') }}" alt="logo" height="36">
+                <img src="{{ asset('assets/images/logoruby.webp') }}" alt="logo" height="36">
                 
             </div>
             <nav class="menu">

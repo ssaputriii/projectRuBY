@@ -79,7 +79,7 @@ class PendaftaranController extends Controller
             // Data Rekening
             $rules['bri_customer_status'] = ['required', 'string'];
             $rules['has_bri_cik_ditiro_account'] = ['required', 'string'];
-            $rules['bri_cik_ditiro_account_number'] = ['required', 'regex:/^[0-9]+$/'],
+            $rules['bri_cik_ditiro_account_number'] = ['required', 'regex:/^[0-9]+$/'];
             $rules['has_qris_bri_cik_ditiro'] = ['required', 'string'];
 
             // Persetujuan
