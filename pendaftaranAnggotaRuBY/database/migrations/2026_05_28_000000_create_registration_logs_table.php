@@ -11,12 +11,30 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registration_logs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('registration_id')->constrained()->onDelete('cascade');
-            $table->string('activity');
-            $table->text('details')->nullable();
-            $table->timestamps();
+        if (!Schema::hasTable('registration_logs')) {
+            Schema::create('registration_logs', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('registration_id')->constrained()->onDelete('cascade');
+                $table->string('activity');
+                $table->text('details')->nullable();
+                $table->timestamps();
+            });
+
+            return;
+        }
+
+        Schema::table('registration_logs', function (Blueprint $table) {
+            if (!Schema::hasColumn('registration_logs', 'registration_id')) {
+                $table->foreignId('registration_id')->after('id')->constrained()->onDelete('cascade');
+            }
+
+            if (!Schema::hasColumn('registration_logs', 'activity')) {
+                $table->string('activity')->after('registration_id')->default('updated');
+            }
+
+            if (!Schema::hasColumn('registration_logs', 'details')) {
+                $table->text('details')->nullable()->after('activity');
+            }
         });
     }
 
