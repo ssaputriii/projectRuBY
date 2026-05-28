@@ -26,16 +26,48 @@
                 </div>
                 <div class="carousel-inner shadow-lg rounded-4 overflow-hidden">
                     <div class="carousel-item active">
-                        <img src="{{ asset('assets/images/ruby1.png') }}" class="d-block w-100" alt="RuBy 1">
+                        <picture>
+                            <source srcset="{{ asset('assets/images/ruby1.webp') }}" type="image/webp">
+                            <img src="{{ asset('assets/images/ruby1.jpg') }}" 
+                                 class="d-block w-100" 
+                                 alt="RuBy 1" 
+                                 width="800" 
+                                 height="450" 
+                                 fetchpriority="high">
+                        </picture>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('assets/images/ruby2.png') }}" class="d-block w-100" alt="RuBy 2">
+                        <picture>
+                            <source srcset="{{ asset('assets/images/ruby2.webp') }}" type="image/webp">
+                            <img src="{{ asset('assets/images/ruby2.jpg') }}" 
+                                 class="d-block w-100" 
+                                 alt="RuBy 2" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                        </picture>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('assets/images/ruby3.png') }}" class="d-block w-100" alt="RuBy 3">
+                        <picture>
+                            <source srcset="{{ asset('assets/images/ruby3.webp') }}" type="image/webp">
+                            <img src="{{ asset('assets/images/ruby3.jpg') }}" 
+                                 class="d-block w-100" 
+                                 alt="RuBy 3" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                        </picture>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('assets/images/ruby4.png') }}" class="d-block w-100" alt="RuBy 4">
+                        <picture>
+                            <source srcset="{{ asset('assets/images/ruby4.webp') }}" type="image/webp">
+                            <img src="{{ asset('assets/images/ruby4.jpg') }}" 
+                                 class="d-block w-100" 
+                                 alt="RuBy 4" 
+                                 width="800" 
+                                 height="450" 
+                                 loading="lazy">
+                        </picture>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -57,7 +89,7 @@
         
 
         <div class="about-grid">
-            <img src="{{ asset('assets/images/ruby3.png') }}" alt="Kegiatan Rumah BUMN" class="about-image mx-auto">
+            <img src="{{ asset('assets/images/ruby3.webp') }}" alt="Kegiatan Rumah BUMN" class="about-image mx-auto">
             <div class="text-center text-lg-start">
                 <p>
             Rumah BUMN Yogyakarta adalah pusat pengembangan dan pemberdayaan UMKM
@@ -75,9 +107,9 @@
         </div>
 
         <div class="partner-logos">
-            <img src="{{ asset('assets/images/logodanantara.png') }}" alt="BUMN Untuk Indonesia">
-            <img src="{{ asset('assets/images/logobri.png') }}" alt="BRI">
-            <img src="{{ asset('assets/images/logoruby.png') }}" alt="Rumah BUMN Yogyakarta">
+            <img src="{{ asset('assets/images/logodanantara.webp') }}" alt="BUMN Untuk Indonesia">
+            <img src="{{ asset('assets/images/logobri.webp') }}" alt="BRI">
+            <img src="{{ asset('assets/images/logoruby.webp') }}" alt="Rumah BUMN Yogyakarta">
         </div>
     </div>
 </section>

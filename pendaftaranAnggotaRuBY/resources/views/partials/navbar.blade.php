@@ -1,7 +1,7 @@
 <header class="site-header">
     <div class="container nav-wrapper">
         <a href="{{ route('home') }}" class="brand">
-            <img src="{{ asset('assets/images/logo-ruby.png') }}" alt="Rumah BUMN Yogyakarta" class="brand-logo">
+            <img src="{{ asset('assets/images/logoruby.webp') }}" alt="Rumah BUMN Yogyakarta" class="brand-logo">
         </a>
 
         <nav class="nav-menu">
