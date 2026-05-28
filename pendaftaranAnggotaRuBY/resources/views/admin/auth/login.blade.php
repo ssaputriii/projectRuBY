@@ -14,7 +14,7 @@
 <body class="d-flex align-items-center justify-content-center" style="min-height:100vh">
     <div class="container" style="max-width:420px">
         <div class="text-center mb-3">
-            <img src="{{ asset('assets/images/logo-ruby.png') }}" alt="logo" height="48">
+            <img src="{{ asset('assets/images/logoruby.webp') }}" alt="logo" height="48">
             <h4 class="mt-2">Admin Panel</h4>
             <p class="text-muted small">Masuk untuk mengelola pendaftaran</p>
         </div>
