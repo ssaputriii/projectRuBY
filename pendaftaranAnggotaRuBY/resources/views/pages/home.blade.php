@@ -89,7 +89,12 @@
         
 
         <div class="about-grid">
-            <img src="{{ asset('assets/images/ruby3.webp') }}" alt="Kegiatan Rumah BUMN" class="about-image mx-auto">
+            <img src="{{ asset('assets/images/ruby3.webp') }}" 
+            alt="Kegiatan Rumah BUMN" 
+            class="about-image mx-auto"
+            width="800" 
+            height="500"
+            loading="lazy">
             <div class="text-center text-lg-start">
                 <p>
             Rumah BUMN Yogyakarta adalah pusat pengembangan dan pemberdayaan UMKM
@@ -107,9 +112,9 @@
         </div>
 
         <div class="partner-logos">
-            <img src="{{ asset('assets/images/logodanantara.webp') }}" alt="BUMN Untuk Indonesia">
-            <img src="{{ asset('assets/images/logobri.webp') }}" alt="BRI">
-            <img src="{{ asset('assets/images/logoruby.webp') }}" alt="Rumah BUMN Yogyakarta">
+            <img src="{{ asset('assets/images/logodanantara.webp') }}" alt="BUMN Untuk Indonesia" width="180" height="60" loading="lazy">
+            <img src="{{ asset('assets/images/logobri.webp') }}" alt="BRI" width="150" height="60" loading="lazy">
+            <img src="{{ asset('assets/images/logoruby.webp') }}" alt="Rumah BUMN Yogyakarta" width="180" height="60" loading="lazy">
         </div>
     </div>
 </section>

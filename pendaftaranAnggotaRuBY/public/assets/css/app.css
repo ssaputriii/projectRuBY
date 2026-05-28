@@ -3,6 +3,16 @@
    Version: Production Ready
 ====================================================== */
 
+@font-face { 
+    font-family: 'bootstrap-icons'; 
+    font-display: swap; 
+} 
+
+@font-face { 
+    font-family: 'Inter'; 
+    font-display: swap; 
+} 
+
 /* ================= ROOT SYSTEM ================= */
 
 :root {
@@ -211,11 +221,21 @@ h2 {
 
 .partner-logos {
     margin-top: var(--space-lg);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    gap: 3rem;  /* ubah dari var(--space-lg) ke 3rem */
 }
+
+.partner-logos img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+
 
 /* ================= BENEFITS ================= */
 
@@ -372,8 +392,16 @@ h2 {
         flex-direction: column;
     }
 
-    .card-grid, .membership-grid, .partner-logos {
+    .card-grid, .membership-grid {
         grid-template-columns: 1fr;
+    }
+
+    .partner-logos {
+        gap: var(--space-md);
+    }
+
+    .partner-logos img {
+        height: 40px;
     }
 }
 
