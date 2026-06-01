@@ -10,10 +10,11 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
+    @unless(request()->routeIs('home'))
+        @livewireStyles
+    @endunless
     
 </head>
-@livewireScripts
 <body class="bg-white font-sans antialiased">
 
     {{-- Navbar --}}
@@ -21,13 +22,15 @@
 
     {{-- Content --}}
     <main class="pt-16">
-        {{ $slot }}
+        {{ $slot ?? '' }}
+        @yield('content')
     </main>
 
     {{-- Footer --}}
     @include('components.footer')
 
-<script src="//unpkg.com/alpinejs" defer></script>
-@livewireScripts
+    @unless(request()->routeIs('home'))
+        @livewireScripts
+    @endunless
 </body>
 </html>

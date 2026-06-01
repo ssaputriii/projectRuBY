@@ -103,10 +103,10 @@
     <div class="hidden md:grid md:grid-cols-3 gap-6 relative">
 
       {{-- Garis penghubung step 1 → 2 --}}
-      <div class="absolute top-[2.6rem] left-[calc(33.33%_-_2px)] w-[calc(33.33%_+_4px)]
+      <div class="absolute top-[2.6rem] left-[calc(33.33%-2px)] w-[calc(33.33%+4px)]
                   border-t-2 border-dashed border-blue-200 z-0 pointer-events-none"></div>
       {{-- Garis penghubung step 2 → 3 --}}
-      <div class="absolute top-[2.6rem] left-[calc(66.66%_-_2px)] w-[calc(33.33%_+_4px)]
+      <div class="absolute top-[2.6rem] left-[calc(66.66%-2px)] w-[calc(33.33%+4px)]
                   border-t-2 border-dashed border-blue-200 z-0 pointer-events-none"></div>
 
       {{-- ── STEP 1 ── --}}
@@ -437,6 +437,8 @@
             <div class="flex items-center justify-center">
                 <img src="{{ asset('images/logo Danantra.png') }}"
                      alt="Danantara"
+                     loading="lazy"
+                     decoding="async"
                      class="h-20 md:h-24 w-auto object-contain 
                             opacity-90 hover:opacity-100 
                             transition duration-300">
@@ -446,6 +448,8 @@
             <div class="flex items-center justify-center">
                 <img src="{{ asset('images/Logo bri.png') }}"
                      alt="BRI"
+                     loading="lazy"
+                     decoding="async"
                      class="h-20 md:h-28 w-auto object-contain 
                             opacity-90 hover:opacity-100 
                             transition duration-300">
@@ -455,6 +459,8 @@
             <div class="flex items-center justify-center">
                 <img src="{{ asset('images/Logo Rumah BUMN.png') }}"
                      alt="Rumah BUMN"
+                     loading="lazy"
+                     decoding="async"
                      class="h-20 md:h-26 w-auto object-contain 
                             opacity-90 hover:opacity-100 
                             transition duration-300">
@@ -491,7 +497,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/work.svg') }}" 
+                <img src="{{ asset('images/work.svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">
@@ -509,7 +518,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/interests.svg') }}" 
+                <img src="{{ asset('images/interests.svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">
@@ -527,7 +539,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/docs.svg') }}" 
+                <img src="{{ asset('images/docs.svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">
@@ -545,7 +560,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/time.svg') }}" 
+                <img src="{{ asset('images/time.svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">
@@ -563,7 +581,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/dashboard.svg') }}" 
+                <img src="{{ asset('images/dashboard.svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">
@@ -581,7 +602,10 @@
                         hover:bg-white/20 hover:-translate-y-1
                         transition duration-300">
 
-                <img src="{{ asset('images/call (2).svg') }}" 
+                <img src="{{ asset('images/call (2).svg') }}"
+                     alt=""
+                     loading="lazy"
+                     decoding="async"
                      class="mx-auto h-10 mb-4">
 
                 <h4 class="font-semibold text-yellow-400 mb-2">

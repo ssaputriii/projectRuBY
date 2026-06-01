@@ -1,24 +1,18 @@
 <?php
 
-namespace App\Livewire\Landing;
+namespace App\Http\Controllers\Landing;
 
+use App\Http\Controllers\Controller;
 use App\Models\Batch;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
-use Livewire\Component;
 
-class Home extends Component
+class HomeController extends Controller
 {
     private const CACHE_KEY = 'landing.home.batch-data';
     private const CACHE_TTL = 600;
 
-    public $activeBatch;
-    public $currentBatch;
-    public $upcomingBatch;
-    public $expiredBatch;
-    public $registrationStatus = 'closed';
-
-    public function mount()
+    public function __invoke()
     {
         $data = Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function () {
             $today = Carbon::today();
@@ -51,19 +45,9 @@ class Home extends Component
             ];
         });
 
-        $this->activeBatch = $data['activeBatch'];
-        $this->currentBatch = $data['currentBatch'];
-        $this->upcomingBatch = $data['upcomingBatch'];
-        $this->registrationStatus = $data['registrationStatus'];
-    }
-
-    public function render()
-    {
-        $batch = $this->activeBatch ?? $this->currentBatch ?? $this->upcomingBatch ?? null;
-
-        return view('livewire.landing.home', [
-            'batch' => $batch,
-            'status' => $this->registrationStatus,
-        ])->layout('layouts.landing');
+        return view('landing.home', [
+            'batch' => $data['activeBatch'] ?? $data['currentBatch'] ?? $data['upcomingBatch'] ?? null,
+            'status' => $data['registrationStatus'],
+        ]);
     }
 }
