@@ -240,23 +240,43 @@
                                         <p class="text-[10px] text-gray-400 mt-1">Kosongkan jika tidak ada</p>
                                         @error('usaha_bisnis') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
-                                    <div>
+                                    <div wire:key="container-foto">
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Foto Formal <span class="text-red-500">*</span></label>
-                                        <input type="file" name="foto" wire:model.live="foto" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                        <div 
+                                            x-data="{ isUploading: false, progress: 0 }"
+                                            x-on:livewire-upload-start="isUploading = true"
+                                            x-on:livewire-upload-finish="isUploading = false"
+                                            x-on:livewire-upload-error="isUploading = false"
+                                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                                        >
+                                            <input type="file" 
+                                                wire:model.live="foto" 
+                                                wire:key="upload-foto" 
+                                                accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+                                                class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                            
+                                            <div x-show="isUploading" class="mt-2">
+                                                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                                    <div class="bg-blue-600 h-1.5 rounded-full transition-all duration-300" :style="`width: ${progress}%`"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="text-[10px] text-gray-400 mt-1">JPG, PNG, max 2MB</p>
                                         @error('foto') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                        @if ($foto && !is_string($foto))
+                                        
+                                        @if ($foto && $foto instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
                                             @php
-                                                $allowedExt = ['jpg', 'jpeg', 'png'];
-                                                $fotoExt = strtolower($foto->getClientOriginalExtension());
+                                                $isImage = false;
+                                                try {
+                                                    $isImage = str_starts_with($foto->getMimeType(), 'image/');
+                                                } catch (\Throwable $e) {}
                                             @endphp
-                                            @if (in_array($fotoExt, $allowedExt))
+                                            
+                                            @if ($isImage)
                                                 <div class="mt-2 relative inline-block">
                                                     <img src="{{ $foto->temporaryUrl() }}" class="w-24 h-24 object-cover rounded-lg border shadow-sm">
                                                     <div class="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1 shadow-md">
-                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                                                     </div>
                                                 </div>
                                             @endif
@@ -357,54 +377,123 @@
                             </div>
                             <div class="space-y-6 p-6">
                                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                                    <div>
+                                    <div wire:key="container-cv">
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Upload CV (PDF) <span class="text-red-500">*</span></label>
-                                        <input type="file" name="cv" wire:model.live="cv" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                        <div 
+                                            x-data="{ isUploading: false, progress: 0 }"
+                                            x-on:livewire-upload-start="isUploading = true"
+                                            x-on:livewire-upload-finish="isUploading = false"
+                                            x-on:livewire-upload-error="isUploading = false"
+                                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                                        >
+                                            <input type="file" 
+                                                wire:model.live="cv" 
+                                                wire:key="upload-cv" 
+                                                accept=".pdf,application/pdf"
+                                                class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                            
+                                            <div x-show="isUploading" class="mt-2">
+                                                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                                    <div class="bg-blue-600 h-1.5 rounded-full transition-all duration-300" :style="`width: ${progress}%`"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <p class="text-[10px] text-gray-400 mt-1">PDF, max 5MB</p>
                                         @error('cv') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                         
-                                        @if ($cv && !is_string($cv))
-                                            <div class="mt-2 flex items-center gap-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
-                                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                                <span class="text-xs font-bold text-blue-700 truncate max-w-[150px]">{{ $cv->getClientOriginalName() }}</span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Upload KHS (PDF) <span class="text-red-500">*</span></label>
-                                        <input type="file" name="khs" wire:model.live="khs" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
-                                        <p class="text-[10px] text-gray-400 mt-1">PDF Kartu Hasil Studi, max 5MB</p>
-                                        @error('khs') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-
-                                        @if ($khs && !is_string($khs))
-                                            <div class="mt-2 flex items-center gap-2 p-2 bg-blue-50 rounded-lg border border-blue-100">
-                                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                                <span class="text-xs font-bold text-blue-700 truncate max-w-[150px]">{{ $khs->getClientOriginalName() }}</span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Screenshot Follow IG <span class="text-red-500">*</span></label>
-                                        <input type="file" name="bukti_follow" wire:model.live="bukti_follow" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
-                                        <p class="text-[10px] text-gray-400 mt-1">Screenshot follow @rumahbumn.yogyakarta, JPG/PNG, max 2MB</p>
-                                        @error('bukti_follow') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-
-                                        @if ($bukti_follow && !is_string($bukti_follow))
-                                        @php
-                                            $allowedExt = ['jpg', 'jpeg', 'png'];
-                                            $buktiExt = strtolower($bukti_follow->getClientOriginalExtension());
-                                        @endphp
-                                        @if (in_array($buktiExt, $allowedExt))
-                                            <div class="mt-2 relative inline-block">
-                                                <img src="{{ $bukti_follow->temporaryUrl() }}" class="w-24 h-24 object-cover rounded-lg border shadow-sm">
-                                                <div class="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1 shadow-md">
-                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                        @if ($cv && $cv instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
+                                            <div class="mt-2 flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                                                <div class="bg-red-100 p-2 rounded-lg">
+                                                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                                     </svg>
+                                                </div>
+                                                <div class="overflow-hidden">
+                                                    <p class="text-sm font-bold text-slate-700 truncate">{{ $cv->getClientOriginalName() }}</p>
+                                                    <p class="text-[10px] text-slate-500">{{ round($cv->getSize() / 1024, 2) }} KB</p>
                                                 </div>
                                             </div>
                                         @endif
-                                    @endif
+                                    </div>
+                                    <div wire:key="container-khs">
+                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Upload KHS (PDF) <span class="text-red-500">*</span></label>
+                                        <div 
+                                            x-data="{ isUploading: false, progress: 0 }"
+                                            x-on:livewire-upload-start="isUploading = true"
+                                            x-on:livewire-upload-finish="isUploading = false"
+                                            x-on:livewire-upload-error="isUploading = false"
+                                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                                        >
+                                            <input type="file" 
+                                                wire:model.live="khs" 
+                                                wire:key="upload-khs" 
+                                                accept=".pdf,application/pdf"
+                                                class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                            
+                                            <div x-show="isUploading" class="mt-2">
+                                                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                                    <div class="bg-blue-600 h-1.5 rounded-full transition-all duration-300" :style="`width: ${progress}%`"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-[10px] text-gray-400 mt-1">PDF Kartu Hasil Studi, max 5MB</p>
+                                        @error('khs') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+
+                                        @if ($khs && $khs instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
+                                            <div class="mt-2 flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                                                <div class="bg-red-100 p-2 rounded-lg">
+                                                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="overflow-hidden">
+                                                    <p class="text-sm font-bold text-slate-700 truncate">{{ $khs->getClientOriginalName() }}</p>
+                                                    <p class="text-[10px] text-slate-500">{{ round($khs->getSize() / 1024, 2) }} KB</p>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div wire:key="container-bukti-follow">
+                                        <label class="block text-sm font-semibold text-gray-700 mb-1">Screenshot Follow IG <span class="text-red-500">*</span></label>
+                                        <div 
+                                            x-data="{ isUploading: false, progress: 0 }"
+                                            x-on:livewire-upload-start="isUploading = true"
+                                            x-on:livewire-upload-finish="isUploading = false"
+                                            x-on:livewire-upload-error="isUploading = false"
+                                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                                        >
+                                            <input type="file" 
+                                                wire:model.live="bukti_follow" 
+                                                wire:key="upload-bukti-follow" 
+                                                accept="image/jpeg,image/png,.jpg,.jpeg,.png"
+                                                class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
+                                            
+                                            <div x-show="isUploading" class="mt-2">
+                                                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                                    <div class="bg-blue-600 h-1.5 rounded-full transition-all duration-300" :style="`width: ${progress}%`"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-[10px] text-gray-400 mt-1">Screenshot follow @rumahbumn.yogyakarta, JPG/PNG, max 2MB</p>
+                                        @error('bukti_follow') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+
+                                        @if ($bukti_follow && $bukti_follow instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
+                                            @php
+                                                $isImageBukti = false;
+                                                try {
+                                                    $isImageBukti = str_starts_with($bukti_follow->getMimeType(), 'image/');
+                                                } catch (\Throwable $e) {}
+                                            @endphp
+                                            
+                                            @if ($isImageBukti)
+                                                <div class="mt-2 relative inline-block">
+                                                    <img src="{{ $bukti_follow->temporaryUrl() }}" class="w-24 h-24 object-cover rounded-lg border shadow-sm">
+                                                    <div class="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1 shadow-md">
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endif
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Link Portofolio <span class="text-gray-400 font-normal">(Opsional)</span></label>

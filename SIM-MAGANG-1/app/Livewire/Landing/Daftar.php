@@ -83,7 +83,7 @@ class Daftar extends Component
     
     public function updated($propertyName)
     {
-        // tandai field sudah disentuh
+        // Tandai field sudah disentuh
         $this->touched[$propertyName] = true;
 
         $fieldRules = [
@@ -108,49 +108,49 @@ class Daftar extends Component
 
             'portfolio' => ['nullable', 'url'],
 
-            // FILE
+            // REDESIGN RULES: Menggunakan mimes dan extensions untuk keamanan ganda
             'foto'         => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-            'cv'           => ['required', 'file',  'mimes:pdf',          'max:5120'],
-            'khs'          => ['required', 'file',  'mimes:pdf',          'max:5120'],
+            'cv'           => ['required', 'file',  'mimes:pdf', 'extensions:pdf', 'max:5120'],
+            'khs'          => ['required', 'file',  'mimes:pdf', 'extensions:pdf', 'max:5120'],
             'bukti_follow' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ];
 
-        // skip jika field tidak punya rules
+        // Skip jika field tidak punya rules
         if (!array_key_exists($propertyName, $fieldRules)) {
             return;
         }
 
-        // hapus error lama
-        $this->resetErrorBag($propertyName);
-        $imageFields = ['foto', 'bukti_follow'];
-        if (
-            in_array($propertyName, $imageFields) &&
-            !($this->$propertyName instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
-        ) {
-            return;
+        // REDESIGN LOGIC: Bersihkan error bag sebelum validasi ulang
+        $this->resetValidation($propertyName);
+
+        // Khusus upload file: Pastikan objek adalah instance TemporaryUploadedFile sebelum divalidasi
+        $fileFields = ['foto', 'cv', 'khs', 'bukti_follow'];
+        if (in_array($propertyName, $fileFields)) {
+            if ($this->$propertyName === null) {
+                // Biarkan validasi required menangkap jika file dihapus/kosong
+                $this->validateOnly($propertyName, [$propertyName => $fieldRules[$propertyName]], $this->validationMessages());
+                return;
+            }
+
+            if (!($this->$propertyName instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)) {
+                // Sedang dalam proses upload, jangan validasi dulu
+                return;
+            }
         }
 
         try {
-
-            // validasi hanya field yang berubah
+            // Validasi hanya field yang berubah
             $this->validateOnly(
                 $propertyName,
-                [
-                    $propertyName => $fieldRules[$propertyName]
-                ],
+                [$propertyName => $fieldRules[$propertyName]],
                 $this->validationMessages()
             );
-
         } catch (\Illuminate\Validation\ValidationException $e) {
-
-            // biarkan Livewire tampilkan error validasi
+            // JANGAN null-kan properti. Biarkan objek "salah" tetap ada di state
+            // agar input di browser tetap sinkron dan tidak blank.
             throw $e;
-
         } catch (\Throwable $e) {
-
-            // cegah crash internal livewire
             \Log::error('Realtime validation error: ' . $e->getMessage());
-
         }
     }
 
