@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Peserta;
 use App\Models\Divisi;
 use App\Models\Batch;
+use Illuminate\Support\Facades\Cache;
 
 class Detail extends Component
 {
@@ -35,8 +36,10 @@ class Detail extends Component
         $this->periode_mulai = $this->peserta->periode_mulai ? $this->peserta->periode_mulai->format('Y-m-d') : null;
         $this->periode_selesai = $this->peserta->periode_selesai ? $this->peserta->periode_selesai->format('Y-m-d') : null;
 
-        $this->divisiList = Divisi::whereIn('id', [$this->peserta->divisi1, $this->peserta->divisi2])->get();
-        $this->batchList = Batch::all();
+        $this->divisiList = Divisi::whereIn('id', array_filter([$this->peserta->divisi1, $this->peserta->divisi2]))
+            ->orderBy('nama')
+            ->get();
+        $this->batchList = Cache::remember('admin.batch-list', 300, fn () => Batch::orderBy('created_at', 'desc')->get(['id', 'nama_batch']));
 
         $this->generateWATemplate();
     }
@@ -94,6 +97,10 @@ class Detail extends Component
             'periode_mulai' => $this->periode_mulai,
             'periode_selesai' => $this->periode_selesai,
         ]);
+
+        Cache::forget('landing.daftar.batch-data');
+        Cache::forget('landing.home.batch-data');
+        Cache::forget('landing.active-batch');
 
         session()->flash('success', 'Data peserta berhasil diperbarui.');
         return redirect()->route('admin.peserta.index');

@@ -3,11 +3,17 @@
 namespace App\Livewire\Admin\Batch;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Batch;
 use App\Models\Divisi;
+use Illuminate\Support\Facades\Cache;
 
 class Index extends Component
 {
+    use WithPagination;
+
+    protected $paginationTheme = 'tailwind';
+
     public $nama_batch, $tanggal_mulai, $tanggal_selesai, $tanggal_admin_mulai, $tanggal_admin_selesai, $tanggal_wawancara_mulai, $tanggal_wawancara_selesai, $tanggal_pengumuman, $kuota, $batch_id;
     public $selectedDivisi = [];
     public $isEdit = false;
@@ -30,8 +36,8 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.batch.index', [
-            'batches' => Batch::with('divisi')->orderBy('created_at', 'desc')->get(),
-            'divisiList' => Divisi::all()
+            'batches' => Batch::with('divisi')->withCount('peserta')->orderBy('created_at', 'desc')->paginate(10),
+            'divisiList' => Cache::remember('admin.divisi-list', 600, fn () => Divisi::orderBy('nama')->get())
         ])->layout('layouts.admin');
     }
 
@@ -82,6 +88,10 @@ class Index extends Component
         ]);
 
         $batch->divisi()->sync($this->selectedDivisi);
+        Cache::forget('landing.daftar.batch-data');
+        Cache::forget('landing.home.batch-data');
+        Cache::forget('landing.active-batch');
+        Cache::forget('admin.batch-list');
 
         session()->flash('success', 'Batch berhasil ditambahkan.');
         $this->closeModal();
@@ -126,6 +136,10 @@ class Index extends Component
         ]);
 
         $batch->divisi()->sync($this->selectedDivisi);
+        Cache::forget('landing.daftar.batch-data');
+        Cache::forget('landing.home.batch-data');
+        Cache::forget('landing.active-batch');
+        Cache::forget('admin.batch-list');
 
         session()->flash('success', 'Batch berhasil diperbarui.');
         $this->closeModal();
@@ -141,6 +155,10 @@ class Index extends Component
         }
 
         $batch->delete();
+        Cache::forget('landing.daftar.batch-data');
+        Cache::forget('landing.home.batch-data');
+        Cache::forget('landing.active-batch');
+        Cache::forget('admin.batch-list');
         session()->flash('success', 'Batch berhasil dihapus.');
     }
 }

@@ -6,13 +6,16 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Batch;
 use App\Models\Peserta;
-use App\Models\Divisi;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 
 class Daftar extends Component
 {
     use WithFileUploads;
+
+    private const CACHE_KEY = 'landing.daftar.batch-data';
+    private const CACHE_TTL = 300;
+
     public $touched = [];
 
     public $activeBatch;
@@ -31,30 +34,50 @@ class Daftar extends Component
 
     public function mount()
     {
-        $today = Carbon::today();
+        $data = Cache::remember(self::CACHE_KEY, self::CACHE_TTL, function () {
+            $today = Carbon::today();
+            $currentBatch = Batch::with('divisi')->withCount('peserta')->active()->first();
+            $activeBatch = $currentBatch && !$currentBatch->isQuotaFull()
+                ? $currentBatch
+                : null;
+            $upcomingBatch = null;
+            $expiredBatch = null;
+            $registrationStatus = 'closed';
 
-        $this->currentBatch = Batch::with('divisi')->withCount('peserta')->active()->first();
-        $this->activeBatch  = $this->currentBatch && !$this->currentBatch->isQuotaFull()
-            ? $this->currentBatch : null;
-        $this->participantCount = $this->currentBatch?->peserta_count ?? 0;
+            if ($activeBatch) {
+                $registrationStatus = 'open';
+            } elseif ($currentBatch && $currentBatch->isQuotaFull()) {
+                $registrationStatus = 'quota_full';
+            } elseif (!$currentBatch) {
+                $upcomingBatch = Batch::where('tanggal_mulai', '>', $today)
+                    ->orderBy('tanggal_mulai', 'asc')
+                    ->first();
 
-        if ($this->activeBatch) {
-            $this->registrationStatus = 'open';
-        } elseif ($this->currentBatch && $this->currentBatch->isQuotaFull()) {
-            $this->registrationStatus = 'quota_full';
-        } elseif ($this->currentBatch) {
-            $this->registrationStatus = 'closed';
-        } else {
-            $this->upcomingBatch = Batch::where('tanggal_mulai', '>', $today)
-                ->orderBy('tanggal_mulai', 'asc')->first();
-            if ($this->upcomingBatch) {
-                $this->registrationStatus = 'upcoming';
-            } else {
-                $this->expiredBatch = Batch::where('tanggal_selesai', '<', $today)
-                    ->orderBy('tanggal_selesai', 'desc')->first();
-                $this->registrationStatus = 'closed';
+                if ($upcomingBatch) {
+                    $registrationStatus = 'upcoming';
+                } else {
+                    $expiredBatch = Batch::where('tanggal_selesai', '<', $today)
+                        ->orderBy('tanggal_selesai', 'desc')
+                        ->first();
+                }
             }
-        }
+
+            return [
+                'activeBatch' => $activeBatch,
+                'currentBatch' => $currentBatch,
+                'upcomingBatch' => $upcomingBatch,
+                'expiredBatch' => $expiredBatch,
+                'registrationStatus' => $registrationStatus,
+                'participantCount' => $currentBatch?->peserta_count ?? 0,
+            ];
+        });
+
+        $this->activeBatch = $data['activeBatch'];
+        $this->currentBatch = $data['currentBatch'];
+        $this->upcomingBatch = $data['upcomingBatch'];
+        $this->expiredBatch = $data['expiredBatch'];
+        $this->registrationStatus = $data['registrationStatus'];
+        $this->participantCount = $data['participantCount'];
     }
 
     
@@ -257,6 +280,10 @@ class Daftar extends Component
                 'divisi2'       => $this->divisi2,
                 'status'        => 'menunggu',
             ]);
+
+            Cache::forget(self::CACHE_KEY);
+            Cache::forget('landing.home.batch-data');
+            Cache::forget('landing.active-batch');
 
             session()->flash('success', 'Pendaftaran Anda berhasil dikirim!');
             $this->reset([

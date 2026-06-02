@@ -31,6 +31,7 @@
                     <div class="flex items-start justify-center md:justify-start">
                         <div class="bg-blue-50 p-4 rounded-2xl group-hover:scale-110 transition">
                             <img src="{{ asset('images/Icon-6.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-14 h-14 object-contain">
                         </div>
                     </div>
@@ -78,6 +79,7 @@
                     <div class="flex items-start justify-center md:justify-start">
                         <div class="bg-purple-50 p-4 rounded-2xl group-hover:scale-110 transition">
                             <img src="{{ asset('images/Icon-8.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-14 h-14 object-contain">
                         </div>
                     </div>
@@ -125,6 +127,7 @@
                     <div class="flex items-start justify-center md:justify-start">
                         <div class="bg-orange-50 p-4 rounded-2xl group-hover:scale-110 transition">
                             <img src="{{ asset('images/Icon-9.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-14 h-14 object-contain">
                         </div>
                     </div>
@@ -172,6 +175,7 @@
                     <div class="flex items-start justify-center md:justify-start">
                         <div class="bg-green-50 p-4 rounded-2xl group-hover:scale-110 transition">
                             <img src="{{ asset('images/Icon-10.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-14 h-14 object-contain">
                         </div>
                     </div>

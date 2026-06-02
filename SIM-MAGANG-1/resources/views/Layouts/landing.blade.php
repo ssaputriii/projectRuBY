@@ -7,12 +7,12 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" rel="stylesheet" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @unless(request()->routeIs('home'))
+    @vite(['resources/css/landing.css', 'resources/js/app.js'])
+    @if(request()->routeIs('daftar', 'cek-pendaftar'))
         @livewireStyles
-    @endunless
+    @endif
     
 </head>
 <body class="bg-white font-sans antialiased">
@@ -29,8 +29,8 @@
     {{-- Footer --}}
     @include('components.footer')
 
-    @unless(request()->routeIs('home'))
+    @if(request()->routeIs('daftar', 'cek-pendaftar'))
         @livewireScripts
-    @endunless
+    @endif
 </body>
 </html>

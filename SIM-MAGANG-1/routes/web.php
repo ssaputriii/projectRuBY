@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,23 +9,18 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-use App\Livewire\Landing\Informasi;
-use App\Livewire\Landing\Alur;
 use App\Livewire\Landing\Daftar;
-use App\Livewire\Landing\Kontak;
-use App\Livewire\Landing\DivisiComponent;
 use App\Livewire\Landing\CekPendaftar;
-use App\Livewire\Landing\Success;
 use App\Http\Controllers\Landing\HomeController;
-
-Route::get('/divisi', DivisiComponent::class)->name('divisi');
+use App\Http\Controllers\Landing\PageController;
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/informasi', Informasi::class)->name('informasi');
-Route::get('/alur', Alur::class)->name('alur');
+Route::get('/informasi', [PageController::class, 'informasi'])->name('informasi');
+Route::get('/alur', [PageController::class, 'alur'])->name('alur');
+Route::get('/divisi', [PageController::class, 'divisi'])->name('divisi');
 Route::get('/daftar', Daftar::class)->name('daftar');
-Route::get('/daftar/success', Success::class)->name('daftar.success');
-Route::get('/kontak', Kontak::class)->name('kontak');
+Route::get('/daftar/success', [PageController::class, 'success'])->name('daftar.success');
+Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 Route::get('/cek-pendaftar', CekPendaftar::class)->name('cek-pendaftar');
 
 

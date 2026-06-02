@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\Peserta;
 use App\Models\Divisi;
 use App\Models\Batch;
+use Illuminate\Support\Facades\Cache;
 
 class Index extends Component
 {
@@ -86,8 +87,8 @@ class Index extends Component
 
         return view('livewire.admin.peserta.index', [
             'peserta' => $peserta,
-            'divisiList' => Divisi::all(),
-            'batchList' => Batch::all()
+            'divisiList' => Cache::remember('admin.divisi-list', 600, fn () => Divisi::orderBy('nama')->get()),
+            'batchList' => Cache::remember('admin.batch-list', 300, fn () => Batch::orderBy('created_at', 'desc')->get(['id', 'nama_batch']))
         ])->layout('layouts.admin');
     }
 }

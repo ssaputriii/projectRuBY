@@ -136,6 +136,16 @@
                     </table>
                 </div>
             </div>
+
+            @if(!$limit && method_exists($peserta, 'hasPages') && $peserta->hasPages())
+                <div class="adm-footer">
+                    <span>
+                        Menampilkan {{ $peserta->firstItem() }}–{{ $peserta->lastItem() }}
+                        dari {{ $peserta->total() }} pendaftar
+                    </span>
+                    <div>{{ $peserta->links() }}</div>
+                </div>
+            @endif
         @endif
 
     </div>

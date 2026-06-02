@@ -11,7 +11,7 @@
                     <a href="https://wa.me/6281234567890" target="_blank" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-green-200 hover:bg-green-50/40">
                         <div class="flex items-start gap-4">
                             <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-green-50 text-green-700 transition group-hover:bg-green-100">
-                                <img src="{{ asset('images/whatsapp.svg') }}" class="h-5 w-5" alt="WhatsApp">
+                                <img src="{{ asset('images/whatsapp.svg') }}" loading="lazy" decoding="async" class="h-5 w-5" alt="WhatsApp">
                             </div>
                             <div>
                                 <h2 class="text-base font-semibold text-slate-900">WhatsApp</h2>
@@ -24,7 +24,7 @@
                     <a href="mailto:info@rumahbumn-yogya.id" class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-200 hover:bg-blue-50/40">
                         <div class="flex items-start gap-4">
                             <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-700 transition group-hover:bg-blue-100">
-                                <img src="{{ asset('images/email.svg') }}" class="h-5 w-5" alt="Email">
+                                <img src="{{ asset('images/email.svg') }}" loading="lazy" decoding="async" class="h-5 w-5" alt="Email">
                             </div>
                             <div>
                                 <h2 class="text-base font-semibold text-slate-900">Email</h2>
@@ -71,7 +71,7 @@
                     <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                         <div class="flex items-start gap-4">
                             <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50">
-                                <img src="{{ asset('images/maps.svg') }}" class="h-5 w-5" alt="Alamat">
+                                <img src="{{ asset('images/maps.svg') }}" loading="lazy" decoding="async" class="h-5 w-5" alt="Alamat">
                             </div>
                             <div>
                                 <h2 class="text-base font-semibold text-slate-900">Alamat</h2>
@@ -91,6 +91,7 @@
                     <iframe
                         class="h-[420px] w-full"
                         src="https://www.google.com/maps?q=Rumah%20BUMN%20Yogyakarta&output=embed"
+                        title="Lokasi Rumah BUMN Yogyakarta"
                         loading="lazy">
                     </iframe>
                 </div>

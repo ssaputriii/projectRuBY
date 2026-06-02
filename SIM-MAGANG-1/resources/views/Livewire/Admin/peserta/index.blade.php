@@ -28,7 +28,7 @@
                           d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/>
                 </svg>
                 <input
-                    wire:model.live="search"
+                    wire:model.live.debounce.500ms="search"
                     type="text"
                     placeholder="Cari nama atau kampus..."
                     class="dp-input dp-input--search"

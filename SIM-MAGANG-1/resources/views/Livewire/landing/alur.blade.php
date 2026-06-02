@@ -27,8 +27,9 @@
 
         <!-- ICON -->
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center md:ml-0">
-          <img src="{{ asset('images/Icon-13.svg') }}" 
-               class="w-10 h-10" 
+          <img src="{{ asset('images/Icon-13.svg') }}"
+               loading="lazy" decoding="async"
+               class="w-10 h-10"
                alt="Tahap 1">
         </div>
 
@@ -53,7 +54,7 @@
       <!-- ===== Tahap 2 ===== -->
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 relative">
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
-          <img src="{{ asset('images/Icon-5.svg') }}" class="w-10 h-10" alt="Tahap 2">
+          <img src="{{ asset('images/Icon-5.svg') }}" loading="lazy" decoding="async" class="w-10 h-10" alt="Tahap 2">
         </div>
 
         <div class="flex-1 bg-white p-6 rounded-2xl shadow-md space-y-4">
@@ -76,7 +77,7 @@
       <!-- ===== Tahap 3 ===== -->
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 relative">
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
-          <img src="{{ asset('images/Icon-7.svg') }}" class="w-10 h-10" alt="Tahap 3">
+          <img src="{{ asset('images/Icon-7.svg') }}" loading="lazy" decoding="async" class="w-10 h-10" alt="Tahap 3">
         </div>
 
         <div class="flex-1 bg-white p-6 rounded-2xl shadow-md space-y-4">
@@ -99,7 +100,7 @@
       <!-- ===== Tahap 4 ===== -->
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 relative">
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
-          <img src="{{ asset('images/Icon-4.svg') }}" class="w-10 h-10" alt="Tahap 4">
+          <img src="{{ asset('images/Icon-4.svg') }}" loading="lazy" decoding="async" class="w-10 h-10" alt="Tahap 4">
         </div>
 
         <div class="flex-1 bg-white p-6 rounded-2xl shadow-md space-y-4">
@@ -122,7 +123,7 @@
       <!-- ===== Tahap 5 ===== -->
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 relative">
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
-          <img src="{{ asset('images/Icon-3.svg') }}" class="w-10 h-10" alt="Tahap 5">
+          <img src="{{ asset('images/Icon-3.svg') }}" loading="lazy" decoding="async" class="w-10 h-10" alt="Tahap 5">
         </div>
 
         <div class="flex-1 bg-white p-6 rounded-2xl shadow-md space-y-4">
@@ -145,7 +146,7 @@
       <!-- ===== Tahap 6 ===== -->
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 relative">
         <div class="relative z-10 flex-shrink-0 w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center">
-          <img src="{{ asset('images/Icon-2.svg') }}" class="w-10 h-10" alt="Tahap 6">
+          <img src="{{ asset('images/Icon-2.svg') }}" loading="lazy" decoding="async" class="w-10 h-10" alt="Tahap 6">
         </div>
 
         <div class="flex-1 bg-white p-6 rounded-2xl shadow-md space-y-4">

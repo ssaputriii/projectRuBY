@@ -7,6 +7,7 @@ use Livewire\WithPagination;
 use App\Models\Batch;
 use App\Models\Peserta;
 use App\Models\Divisi;
+use Illuminate\Support\Facades\Cache;
 
 class Dashboard extends Component
 {
@@ -82,7 +83,7 @@ class Dashboard extends Component
         return view('livewire.admin.dashboard', array_merge([
             'activeBatch' => $activeBatch,
             'pesertas' => $pesertas,
-            'divisiList' => Divisi::all(),
+            'divisiList' => Cache::remember('admin.divisi-list', 600, fn () => Divisi::orderBy('nama')->get()),
         ], $stats))->layout('layouts.admin');
     }
 }

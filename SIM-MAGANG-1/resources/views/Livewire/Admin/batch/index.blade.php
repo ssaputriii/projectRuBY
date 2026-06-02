@@ -226,6 +226,16 @@
 
     </div>{{-- /.adm-card --}}
 
+    @if($batches->hasPages())
+        <div class="adm-footer">
+            <span>
+                Menampilkan {{ $batches->firstItem() }}–{{ $batches->lastItem() }}
+                dari {{ $batches->total() }} batch
+            </span>
+            <div>{{ $batches->links() }}</div>
+        </div>
+    @endif
+
     {{-- ════════════════════════════════════════
          MODAL — Tambah / Edit Batch
          ════════════════════════════════════════ --}}

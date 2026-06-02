@@ -23,7 +23,7 @@
             <div class="adm-stat adm-stat--{{ $stat['color'] }}">
                 <div class="adm-stat__top">
                     <div class="adm-stat__icon">
-                        <img src="{{ asset('images/' . $stat['icon']) }}" alt="{{ $stat['label'] }}">
+                        <img src="{{ asset('images/' . $stat['icon']) }}" loading="lazy" decoding="async" alt="{{ $stat['label'] }}">
                     </div>
                     <span class="adm-stat__label-tag">Statistik</span>
                 </div>
@@ -40,7 +40,7 @@
         <div class="adm-card-hdr">
             <div style="display:flex;align-items:center;gap:10px">
                 <div class="db-batch-icon">
-                    <img src="{{ asset('images/periode.svg') }}" alt="batch">
+                    <img src="{{ asset('images/periode.svg') }}" loading="lazy" decoding="async" alt="batch">
                 </div>
                 <div>
                     <p class="adm-card-hdr__title">Batch Pendaftaran Aktif</p>

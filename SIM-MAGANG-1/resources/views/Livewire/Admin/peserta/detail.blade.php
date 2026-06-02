@@ -86,6 +86,8 @@
                     <div class="adm-profile-card__avatar">
                         @if($peserta->foto && Storage::disk('public')->exists($peserta->foto))
                             <img src="{{ asset('storage/' . $peserta->foto) }}"
+                                 loading="lazy"
+                                 decoding="async"
                                  alt="{{ $peserta->nama }}">
                         @else
                             <svg fill="currentColor" viewBox="0 0 24 24">

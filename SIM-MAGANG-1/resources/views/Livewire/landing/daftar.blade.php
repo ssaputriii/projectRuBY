@@ -214,29 +214,29 @@
                                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap <span class="text-red-500">*</span></label>
-                                        <input type="text" wire:model.live="nama" placeholder="Masukkan nama lengkap" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="nama" placeholder="Masukkan nama lengkap" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         @error('nama') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Email Aktif <span class="text-red-500">*</span></label>
-                                        <input type="email" wire:model.live="email" placeholder="contoh@email.com" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="email" wire:model.live.debounce.500ms="email" placeholder="contoh@email.com" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         @error('email') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Nomor WhatsApp <span class="text-red-500">*</span></label>
-                                        <input type="text" wire:model.live="whatsapp" placeholder="08123456789" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="whatsapp" placeholder="08123456789" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         <p class="text-[10px] text-gray-400 mt-1">Gunakan format angka saja (10-15 digit)</p>
                                         @error('whatsapp') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Sosial Media <span class="text-red-500">*</span></label>
-                                        <input type="text" wire:model.live="sosial_media" placeholder="Username Instagram/TikTok" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="sosial_media" placeholder="Username Instagram/TikTok" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         <p class="text-[10px] text-gray-400 mt-1">Tidak diprivat, diutamakan Instagram</p>
                                         @error('sosial_media') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div class="md:col-span-2">
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Usaha/Bisnis yang dimiliki <span class="text-gray-400 font-normal">(Opsional)</span></label>
-                                        <input type="text" wire:model.live="usaha_bisnis" placeholder="Nama usaha atau deskripsi singkat" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="usaha_bisnis" placeholder="Nama usaha atau deskripsi singkat" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         <p class="text-[10px] text-gray-400 mt-1">Kosongkan jika tidak ada</p>
                                         @error('usaha_bisnis') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
@@ -279,12 +279,12 @@
                                 <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Asal Perguruan Tinggi <span class="text-red-500">*</span></label>
-                                        <input type="text" wire:model.live="universitas" placeholder="Nama universitas" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="universitas" placeholder="Nama universitas" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         @error('universitas') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Program Studi <span class="text-red-500">*</span></label>
-                                        <input type="text" wire:model.live="prodi" placeholder="Contoh: Teknik Informatika" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="prodi" placeholder="Contoh: Teknik Informatika" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         @error('prodi') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>
                                     <div>
@@ -407,7 +407,7 @@
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Link Portofolio <span class="text-gray-400 font-normal">(Opsional)</span></label>
-                                        <input type="text" wire:model.live="portfolio" placeholder="https://behance.net/username" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
+                                        <input type="text" wire:model.live.debounce.500ms="portfolio" placeholder="https://behance.net/username" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                                         <p class="text-[10px] text-gray-400 mt-1">Link Google Drive, Behance, GitHub, dll</p>
                                         @error('portfolio') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
                                     </div>

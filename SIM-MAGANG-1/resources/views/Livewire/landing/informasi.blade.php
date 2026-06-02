@@ -23,7 +23,8 @@
                 <div class="bg-white p-8 rounded-2xl shadow-md space-y-6">
 
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/Icon-4.svg') }}" 
+                        <img src="{{ asset('images/Icon-4.svg') }}"
+                            loading="lazy" decoding="async"
                             class="w-8 h-8" alt="icon">
                         <h2 class="text-2xl font-bold text-gray-900">
                             Deskripsi Program
@@ -50,43 +51,50 @@
                         <ul class="space-y-3 text-gray-700">
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Mahasiswa aktif minimal semester 5</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Tidak sedang mengambil mata kuliah selain magang/PI/MBKM dan sejenisnya</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Terbuka untuk semua jurusan/program studi/fakultas</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Bersedia Work From Office (WFO) selama mengikuti magang</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Bersedia mengikuti aturan yang berlaku selama magang</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Dapat mengikuti interview secara luring apabila lolos seleksi administrasi</span>
                             </li>
 
                             <li class="flex items-start gap-3">
-                                <img src="{{ asset('images/Icon-3.svg') }}" 
+                                <img src="{{ asset('images/Icon-3.svg') }}"
+                                    loading="lazy" decoding="async"
                                     class="w-5 h-5 mt-1" alt="icon">
                                 <span>Durasi minimal magang 3 (tiga) bulan</span>
                             </li>
@@ -104,7 +112,8 @@
                 {{-- DURASI --}}
                 <div class="bg-white p-6 rounded-2xl shadow-md space-y-3">
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/Icon-2.svg') }}" 
+                        <img src="{{ asset('images/Icon-2.svg') }}"
+                            loading="lazy" decoding="async"
                             class="w-7 h-7" alt="icon">
                         <h3 class="text-lg font-bold text-gray-900">
                             Durasi Program
@@ -126,31 +135,36 @@
                     <ul class="space-y-3 text-gray-700">
 
                         <li class="flex items-start gap-3">
-                            <img src="{{ asset('images/Icon-3.svg') }}" 
+                            <img src="{{ asset('images/Icon-3.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-5 h-5 mt-1" alt="icon">
                             <span>Sertifikat magang resmi</span>
                         </li>
 
                         <li class="flex items-start gap-3">
-                            <img src="{{ asset('images/Icon-3.svg') }}" 
+                            <img src="{{ asset('images/Icon-3.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-5 h-5 mt-1" alt="icon">
                             <span>Bimbingan mentor profesional</span>
                         </li>
 
                         <li class="flex items-start gap-3">
-                            <img src="{{ asset('images/Icon-3.svg') }}" 
+                            <img src="{{ asset('images/Icon-3.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-5 h-5 mt-1" alt="icon">
                             <span>Pengalaman kerja di BUMN</span>
                         </li>
 
                         <li class="flex items-start gap-3">
-                            <img src="{{ asset('images/Icon-3.svg') }}" 
+                            <img src="{{ asset('images/Icon-3.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-5 h-5 mt-1" alt="icon">
                             <span>Networking dengan profesional</span>
                         </li>
 
                         <li class="flex items-start gap-3">
-                            <img src="{{ asset('images/Icon-3.svg') }}" 
+                            <img src="{{ asset('images/Icon-3.svg') }}"
+                                loading="lazy" decoding="async"
                                 class="w-5 h-5 mt-1" alt="icon">
                             <span>Akses ke fasilitas Rumah BUMN</span>
                         </li>
@@ -170,7 +184,8 @@
                 {{-- TUJUAN --}}
                 <div class="bg-white p-8 rounded-2xl shadow-md space-y-6 h-full">
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/Icon-1.svg') }}" 
+                        <img src="{{ asset('images/Icon-1.svg') }}"
+                            loading="lazy" decoding="async"
                             class="w-8 h-8" alt="icon">
                         <h2 class="text-2xl font-bold text-gray-900">
                             Tujuan Program
@@ -187,7 +202,8 @@
                 {{-- MANFAAT --}}
                 <div class="bg-white p-8 rounded-2xl shadow-md space-y-6 h-full">
                     <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/Icon.svg') }}" 
+                        <img src="{{ asset('images/Icon.svg') }}"
+                            loading="lazy" decoding="async"
                             class="w-8 h-8" alt="icon">
                         <h2 class="text-2xl font-bold text-gray-900">
                             Manfaat Program
