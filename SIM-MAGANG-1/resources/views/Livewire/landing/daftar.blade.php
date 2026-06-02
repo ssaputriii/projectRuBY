@@ -245,24 +245,17 @@
                                         <input type="file" name="foto" wire:model.live="foto" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition">
                                         <p class="text-[10px] text-gray-400 mt-1">JPG, PNG, max 2MB</p>
                                         @error('foto') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
-                                        
                                         @if ($foto && !is_string($foto))
                                             @php
-                                                $mime = $foto->getMimeType();
+                                                $allowedExt = ['jpg', 'jpeg', 'png'];
+                                                $fotoExt = strtolower($foto->getClientOriginalExtension());
                                             @endphp
-
-                                            @if (str_starts_with($mime, 'image/'))
+                                            @if (in_array($fotoExt, $allowedExt))
                                                 <div class="mt-2 relative inline-block">
-                                                    <img src="{{ $foto->temporaryUrl() }}"
-                                                        class="w-24 h-24 object-cover rounded-lg border shadow-sm">
-
+                                                    <img src="{{ $foto->temporaryUrl() }}" class="w-24 h-24 object-cover rounded-lg border shadow-sm">
                                                     <div class="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1 shadow-md">
                                                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                stroke-width="3"
-                                                                d="M5 13l4 4L19 7">
-                                                            </path>
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                                                         </svg>
                                                     </div>
                                                 </div>
@@ -397,13 +390,21 @@
                                         @error('bukti_follow') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
 
                                         @if ($bukti_follow && !is_string($bukti_follow))
+                                        @php
+                                            $allowedExt = ['jpg', 'jpeg', 'png'];
+                                            $buktiExt = strtolower($bukti_follow->getClientOriginalExtension());
+                                        @endphp
+                                        @if (in_array($buktiExt, $allowedExt))
                                             <div class="mt-2 relative inline-block">
                                                 <img src="{{ $bukti_follow->temporaryUrl() }}" class="w-24 h-24 object-cover rounded-lg border shadow-sm">
                                                 <div class="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1 shadow-md">
-                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                                    </svg>
                                                 </div>
                                             </div>
                                         @endif
+                                    @endif
                                     </div>
                                     <div>
                                         <label class="block text-sm font-semibold text-gray-700 mb-1">Link Portofolio <span class="text-gray-400 font-normal">(Opsional)</span></label>

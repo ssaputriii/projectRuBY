@@ -109,13 +109,10 @@ class Daftar extends Component
             'portfolio' => ['nullable', 'url'],
 
             // FILE
-            'foto' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
-
-            'cv' => ['nullable', 'file', 'mimes:pdf', 'max:5120'],
-
-            'khs' => ['nullable', 'file', 'mimes:pdf', 'max:5120'],
-
-            'bukti_follow' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'foto'         => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'cv'           => ['required', 'file',  'mimes:pdf',          'max:5120'],
+            'khs'          => ['required', 'file',  'mimes:pdf',          'max:5120'],
+            'bukti_follow' => ['required', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
         ];
 
         // skip jika field tidak punya rules
@@ -125,6 +122,13 @@ class Daftar extends Component
 
         // hapus error lama
         $this->resetErrorBag($propertyName);
+        $imageFields = ['foto', 'bukti_follow'];
+        if (
+            in_array($propertyName, $imageFields) &&
+            !($this->$propertyName instanceof \Livewire\Features\SupportFileUploads\TemporaryUploadedFile)
+        ) {
+            return;
+        }
 
         try {
 
